@@ -32,5 +32,9 @@
             <p class="text-muted"><strong>ID: </strong> {{ copy.id }}</p>
         {% endfor %}
     </div>
+{% endblock %}
 
+{% block bottom_content %}
+    <input type="submit" value="update" onclick="window.location.href='{% url 'book-update' book.pk %}'">
+    <input type="submit" value="delete" onclick="window.location.href='{% url 'book-delete' book.pk %}'">
 {% endblock %}

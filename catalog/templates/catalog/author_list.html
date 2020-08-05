@@ -17,3 +17,9 @@
         </ul>
     {% endfor %}
 {% endblock %}
+
+{% block bottom_content %}
+    <form action="{% url 'author-create' %}">
+        <input type="submit" value="create">
+    </form>
+{% endblock %}

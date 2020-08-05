@@ -11,3 +11,8 @@
         {% endfor %}
     </div>
 {% endblock %}
+
+{% block bottom_content %}
+    <input type="submit" value="update" onclick="window.location.href='{% url 'author-update' author.pk %}'">
+    <input type="submit" value="delete" onclick="window.location.href='{% url 'author-delete' author.pk %}'">
+{% endblock %}

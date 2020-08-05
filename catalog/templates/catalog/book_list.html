@@ -15,3 +15,9 @@
         <p>There are no books in the library.</p>
     {% endif %}
 {% endblock %}
+
+{% block bottom_content %}
+    <form action="{% url 'book-create' %}">
+        <input type="submit" value="create">
+    </form>
+{% endblock %}
