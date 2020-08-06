@@ -91,31 +91,37 @@ def renew_book_librarian(request, pk):
                   )
 
 
-class AuthorCreate(edit.CreateView):
+class AuthorCreate(PermissionRequiredMixin, edit.CreateView):
     model = models.Author
     fields = '__all__'
+    permission_required = 'catalog.can_mark_returned'
 
 
-class AuthorUpdate(edit.UpdateView):
+class AuthorUpdate(PermissionRequiredMixin, edit.UpdateView):
     model = models.Author
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
+    permission_required = 'catalog.can_mark_returned'
 
 
-class AuthorDelete(edit.DeleteView):
+class AuthorDelete(PermissionRequiredMixin, edit.DeleteView):
     model = models.Author
     success_url = reverse_lazy('authors')
+    permission_required = 'catalog.can_mark_returned'
 
 
-class BookCreate(edit.CreateView):
+class BookCreate(PermissionRequiredMixin, edit.CreateView):
     model = models.Book
     fields = '__all__'
+    permission_required = 'catalog.can_mark_returned'
 
 
-class BookUpdate(edit.UpdateView):
+class BookUpdate(PermissionRequiredMixin, edit.UpdateView):
     model = models.Book
     fields = '__all__'
+    permission_required = 'catalog.can_mark_returned'
 
 
-class BookDelete(edit.DeleteView):
+class BookDelete(PermissionRequiredMixin, edit.DeleteView):
     model = models.Book
     success_url = reverse_lazy('books')
+    permission_required = 'catalog.can_mark_returned'

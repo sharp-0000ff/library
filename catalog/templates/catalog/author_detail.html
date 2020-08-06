@@ -13,6 +13,10 @@
 {% endblock %}
 
 {% block bottom_content %}
-    <input type="submit" value="update" onclick="window.location.href='{% url 'author-update' author.pk %}'">
-    <input type="submit" value="delete" onclick="window.location.href='{% url 'author-delete' author.pk %}'">
+    {% if user.is_staff %}
+        {% if perms.catalog.can_mark_returned %}
+            <input type="submit" value="update" onclick="window.location.href='{% url 'author-update' author.pk %}'">
+            <input type="submit" value="delete" onclick="window.location.href='{% url 'author-delete' author.pk %}'">
+        {% endif %}
+    {% endif %}
 {% endblock %}
